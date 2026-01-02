@@ -56,11 +56,11 @@ const getBooleanEnvVar = (key: string, defaultValue: boolean = false): boolean =
 
 export const env: EnvConfig = {
   // Google Analytics
-  ga4MeasurementId: getEnvVar('VITE_GA4_MEASUREMENT_ID', 'G-XXXXXXXXXX'),
+  ga4MeasurementId: getEnvVar('VITE_GA4_MEASUREMENT_ID', 'G-XXXXXXXXXX'),////////////////////////
   enableGA4: getBooleanEnvVar('VITE_ENABLE_GA4', true),
   
   // Google Search Console
-  gscVerificationCode: getEnvVar('VITE_GSC_VERIFICATION_CODE', 'your_gsc_verification_code_here'),
+  gscVerificationCode: getEnvVar('VITE_GSC_VERIFICATION_CODE', 'your_gsc_verification_code_here'),//////////////////
   enableGSC: getBooleanEnvVar('VITE_ENABLE_GSC', true),
   
   // Contact Info
@@ -70,8 +70,8 @@ export const env: EnvConfig = {
   
   // URLs
   siteUrl: getEnvVar('VITE_SITE_URL', 'https://www.wiedzmasamira.pl'),
-  ogImageUrl: getEnvVar('VITE_OG_IMAGE_URL', 'https://www.wiedzmasamira.pl/og-image.jpg'),
-  apiBaseUrl: getEnvVar('VITE_API_BASE_URL', 'http://localhost:3001'),
+  ogImageUrl: getEnvVar('VITE_OG_IMAGE_URL', 'https://www.wiedzmasamira.pl/og-image.jpg'),///////////////
+  apiBaseUrl: getEnvVar('VITE_API_BASE_URL', 'https://www.wrozka-samira.pl'),
   apiSendEmailEndpoint: getEnvVar('VITE_API_SEND_EMAIL_ENDPOINT', '/api/send-email'),
   
   // Social Media
@@ -85,8 +85,8 @@ export const env: EnvConfig = {
   businessLongitude: getEnvVar('VITE_BUSINESS_LONGITUDE', '21.0122'),
   
   // SEO
-  siteDescription: getEnvVar('VITE_SITE_DESCRIPTION', 'Certyfikowany tarocista z 15+ latami doświadczenia.'),
-  siteKeywords: getEnvVar('VITE_SITE_KEYWORDS', 'czytanie tarota, tarot online, wróżba z kart'),
+  siteDescription: getEnvVar('VITE_SITE_DESCRIPTION', 'Certyfikowana tarocistka i rytualistka z 10+ latami doświadczenia.'),
+  siteKeywords: getEnvVar('VITE_SITE_KEYWORDS', 'czytanie tarota, tarot online, wróżba z kart, rytuały'),
   
   // Features
   enableEmail: getBooleanEnvVar('VITE_ENABLE_EMAIL', true),
