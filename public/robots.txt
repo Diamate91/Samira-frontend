@@ -1,0 +1,12 @@
+# robots.txt for Wróżka Samira - Czytanie Tarota Online
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://www.wiedzmasamira.pl/sitemap.xml
+
+# Crawl-delay dla botów (opcjonalne)
+Crawl-delay: 1

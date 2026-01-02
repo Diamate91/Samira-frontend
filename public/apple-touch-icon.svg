@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <defs>
+    <linearGradient id="moonGradApple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="bgGradApple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#2d1b4e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0f2e;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background with rounded corners for iOS -->
+  <rect width="180" height="180" rx="40" fill="url(#bgGradApple)"/>
+  
+  <!-- Decorative glow -->
+  <circle cx="90" cy="90" r="70" fill="#8b5cf6" opacity="0.1"/>
+  
+  <!-- Large crescent moon -->
+  <path d="M 105 35 C 85 35 70 50 70 70 C 70 90 85 105 105 105 C 98 105 92 96 92 80 C 92 64 98 42 105 35 Z" 
+        fill="url(#moonGradApple)" 
+        opacity="0.95"/>
+  
+  <!-- Moon inner highlight -->
+  <path d="M 102 40 C 87 40 75 52 75 70 C 75 88 87 100 102 100 C 96 100 92 93 92 78 C 92 63 96 45 102 40 Z" 
+        fill="#ffffff" 
+        opacity="0.15"/>
+  
+  <!-- Stars scattered -->
+  <circle cx="50" cy="50" r="4" fill="#ffffff" opacity="0.9"/>
+  <circle cx="130" cy="65" r="3" fill="#ffffff" opacity="0.8"/>
+  <circle cx="120" cy="120" r="3.5" fill="#ffffff" opacity="0.85"/>
+  <circle cx="50" cy="130" r="3" fill="#ffffff" opacity="0.75"/>
+  <circle cx="70" cy="110" r="2.5" fill="#a855f7" opacity="0.9"/>
+  <circle cx="140" cy="95" r="2" fill="#ffffff" opacity="0.7"/>
+  
+  <!-- Sparkles -->
+  <path d="M 135 48 L 137 52 L 141 54 L 137 56 L 135 60 L 133 56 L 129 54 L 133 52 Z" 
+        fill="#ffffff" 
+        opacity="0.8"/>
+  <path d="M 45 90 L 47 94 L 51 96 L 47 98 L 45 102 L 43 98 L 39 96 L 43 94 Z" 
+        fill="#a855f7" 
+        opacity="0.7"/>
+  <path d="M 110 140 L 111.5 143 L 114.5 144.5 L 111.5 146 L 110 149 L 108.5 146 L 105.5 144.5 L 108.5 143 Z" 
+        fill="#ffffff" 
+        opacity="0.75"/>
+</svg>

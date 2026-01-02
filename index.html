@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="%VITE_GSC_VERIFICATION_CODE%" />
+    
+    <!-- Google Analytics 4 (GA4) -->
+    <script>
+      // Check cookie consent before initializing GA4
+      const cookieConsent = localStorage.getItem('cookie-consent');
+      const enableGA4 = '%VITE_ENABLE_GA4%' === 'true';
+      const ga4Id = '%VITE_GA4_MEASUREMENT_ID%';
+      
+      function initializeGA4() {
+        if (!enableGA4 || !ga4Id || ga4Id === 'G-XXXXXXXXXX') {
+          console.log('GA4 tracking disabled or not configured');
+          // Mock tracking function for development
+          window.trackEvent = function(eventName, eventParams) {
+            console.log('🔍 [GA4 Mock]', eventName, eventParams);
+          };
+          return;
+        }
+
+        // Load GA4 script
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${ga4Id}`;
+        document.head.appendChild(script);
+        
+        // Initialize GA4
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        gtag('config', ga4Id, {
+          'send_page_view': true,
+          'page_title': document.title,
+          'page_location': window.location.href,
+          'anonymize_ip': true,  // GDPR compliance
+          'cookie_flags': 'SameSite=None;Secure'
+        });
+        
+        // Custom event tracking function
+        window.trackEvent = function(eventName, eventParams) {
+          gtag('event', eventName, eventParams);
+        };
+        
+        console.log('✅ GA4 initialized with consent');
+      }
+      
+      // Initialize immediately if consent already given
+      if (cookieConsent === 'accepted') {
+        initializeGA4();
+      } else {
+        // Wait for consent event
+        window.addEventListener('cookieConsentAccepted', initializeGA4);
+        
+        // Provide mock function until consent is given
+        window.trackEvent = function(eventName, eventParams) {
+          console.log('⏳ [GA4 Waiting for consent]', eventName, eventParams);
+        };
+      }
+    </script>
+    
+    <!-- Primary Meta Tags -->
+    <title>Wróżka Samira - Tarot & Rytuały</title>
+    <meta name="title" content="Wróżka Samira - Tarot & Rytuały" />
+    <meta name="description" content="%VITE_SITE_DESCRIPTION%" />
+    <meta name="keywords" content="%VITE_SITE_KEYWORDS%" />
+    <meta name="author" content="%VITE_BUSINESS_NAME%" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Polish" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:title" content="Wróżka Samira - Tarot & Rytuały" />
+    <meta property="og:description" content="%VITE_SITE_DESCRIPTION%" />
+    <meta property="og:image" content="%VITE_OG_IMAGE_URL%" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content="%VITE_BUSINESS_NAME% - Profesjonalne Czytanie Tarota" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="%VITE_SITE_URL%/" />
+    <meta property="twitter:title" content="Wróżka Samira - Tarot & Rytuały" />
+    <meta property="twitter:description" content="%VITE_SITE_DESCRIPTION%" />
+    <meta property="twitter:image" content="%VITE_OG_IMAGE_URL%" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+    
+    <!-- Favicons - Multiple sizes for all devices -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon-16x16.svg" />
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon-32x32.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.svg" />
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#8b5cf6" />
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "%VITE_BUSINESS_NAME% - Czytanie Tarota",
+      "image": "%VITE_OG_IMAGE_URL%",
+      "description": "%VITE_SITE_DESCRIPTION%",
+      "url": "%VITE_SITE_URL%",
+      "telephone": "%VITE_BUSINESS_PHONE%",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "%VITE_BUSINESS_COUNTRY%",
+        "addressLocality": "%VITE_BUSINESS_CITY%"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "%VITE_BUSINESS_LATITUDE%",
+        "longitude": "%VITE_BUSINESS_LONGITUDE%"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "800"
+      },
+      "sameAs": [
+        "%VITE_FACEBOOK_URL%",
+        "%VITE_INSTAGRAM_URL%"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Usługi Tarota",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Czytanie Tarota Online",
+              "description": "Profesjonalne czytanie kart tarota przez wideorozmowę lub e-mail"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tarot Miłosny",
+              "description": "Wykładanie kart w sprawach serca, związków i miłości"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tarot Kariery",
+              "description": "Przewodnictwo w sprawach zawodowych i ścieżki życiowej"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Oczyszczanie Energetyczne",
+              "description": "Rytuały duchowe i oczyszczanie energii"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <!-- Person Schema for Wróżka Samira -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "%VITE_BUSINESS_NAME%",
+      "jobTitle": "Certyfikowany Tarocista i Przewodnik Duchowy",
+      "description": "Profesjonalny tarocista z 15+ latami doświadczenia w czytaniu tarota, astrologii i rytuałach duchowych.",
+      "image": "%VITE_SITE_URL%/samira-profile.jpg",
+      "url": "%VITE_SITE_URL%",
+      "knowsAbout": ["Czytanie Tarota", "Astrologia", "Rytuały Duchowe", "Oczyszczanie Energetyczne", "Przewodnictwo Duchowe"]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/app/main.tsx"></script>
+  </body>
+</html>
